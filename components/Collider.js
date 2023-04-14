@@ -27,16 +27,25 @@ AFRAME.registerComponent("flying-birds", {
     birdEl.setAttribute("id", id);
 
     birdEl.setAttribute("position", position);
-    birdEl.setAttribute("scale", { x: 0.15, y: 0.15, z: 0.15 });
+    birdEl.setAttribute("scale", { x: 0.07, y: 0.07, z: 0.07 });
 
     //set the gLTF model attribute
     birdEl.setAttribute("gltf-model", "./assets/guppy_fish/scene.gltf");
 
     //set animation mixer of models with animation
     birdEl.setAttribute("animation-mixer", {});
-    birdEl.setAttribute("static-body", {shape:"sphere", sphereRadius:5});
-    birdEl.setAttribute("game-play",{elementId:`#${id}`})
-    
+
+    //set the static body of the physic system
+    birdEl.setAttribute("static-body", {
+      shape: "sphere",
+      sphereRadius: 3.2,
+    });
+
+    //set the game play attribute
+    birdEl.setAttribute("game-play", {
+      elementId: `#${id}`,
+    });
+
     //append the bird entity as the child of the terrain entity
     terrainEl.appendChild(birdEl);
   },
